@@ -9,7 +9,7 @@ public class WeaponThrow : MonoBehaviour
     public ObjectPools kunai_pool;
     //public GameObject weapon;
     public Transform throwingPoint;
-    public float speed = 50f;
+    public float speed = 70f;
 
     [SerializeField]
     private InputActionReference inputAction;
@@ -17,7 +17,7 @@ public class WeaponThrow : MonoBehaviour
     bool launched=false;
     bool recuperated;
 
-    public Animator anim;
+    //public Animator anim;
 
     //[SerializeField] Camera camera;
     //[SerializeField] float range = 100f;
@@ -36,7 +36,7 @@ public class WeaponThrow : MonoBehaviour
     {
         GetDevice();
         kunai_pool = ObjectPools.Instance;
-        anim = GetComponent<Animator>();
+        //anim = GetComponent<Animator>();
     }
 
    
@@ -78,7 +78,7 @@ public class WeaponThrow : MonoBehaviour
 
     private void Throw(InputAction.CallbackContext context)
     {
-        anim.SetTrigger("Throw");
+        //anim.SetTrigger("KunaiThrow");
         GameObject weaponInst = kunai_pool.ObjToThrow("kunai", throwingPoint.position, Quaternion.identity);
         //GameObject weaponInst = Instantiate(weapon, throwingPoint.position, weapon.transform.rotation);
         weaponInst.transform.rotation = Quaternion.LookRotation(throwingPoint.position);
